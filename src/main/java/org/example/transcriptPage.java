@@ -1,175 +1,116 @@
 package org.example;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.io.File;
+import java.nio.file.Paths;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class transcriptPage {
 
-    private WebDriver driver;
-    private By acceptCookiesButton = By.xpath("//button[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']");
-    private By studentButton = By.xpath("//a[text()='Student']");
-    private By mittLtuButton = By.xpath("//a[text()='Mitt LTU']");
-
-    private By ltuEmailField = By.xpath("//input[@id='username']");
-    private By ltuPasswordField = By.xpath("//input[@id='password']");
-    private By ltuLoginButton = By.xpath("//input[@name='submit']");
-
-    private By ladokButton = By.xpath("//a[text()=' Intyg »']");
-    private By ladokBLUEBIGBUTTON = By.xpath("//a[@href='/student/login?ret=/app/studentwebb']");
-
-    private By searchInput = By.xpath("//input[@id='searchinput']");
-    private By luleaField = By.xpath("//div[text()='Lulea University of Technology']");
-
-    // Issue here
-    private By transcriptField = By.xpath("//a[@href='/student/app/studentwebb/intyg']");
-    private By transcriptCreateButton = By.xpath("//button[@title='Skapa intyg']");
-    private By selectionField = By.xpath("//select[@id='intygstyp']");
-    //private By certificateOfRegisteration = By.xpath("//option[text()='Registreringsintyg']");
-    private By programmeButton = By.xpath("//input[@id='allaRegistreringarGrupperdePaProgramRadio']");
-    private By certificateCreate = By.xpath("//span[text()='Skapa']");
-
-    private By transcriptDownload = By.xpath("//*[contains(text(),'Registreringsintyg')]");
-
-
-    public transcriptPage(WebDriver driver){
-        this.driver = driver;
-        driver.get("https://ltu.se");
+    public transcriptPage() {
+        Selenide.open("https://ltu.se");
     }
 
-    public void acceptCookies(){
-        try {
-            utils.delay(2000);
-            WebElement acceptCookies = driver.findElement(acceptCookiesButton);
-            acceptCookies.click();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public void acceptCookies() {
+        SelenideElement acceptCookiesButton = $x("//button[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']");
+        acceptCookiesButton.click();
     }
 
     public void navigateToLTU() {
-        WebElement studentButtonField = driver.findElement(studentButton);
-        studentButtonField.click();
+        SelenideElement studentButton = $x("//a[text()='Student']");
+        SelenideElement mittLtuButton = $x("//a[text()='Mitt LTU']");
 
-        WebElement ltuButton = driver.findElement(mittLtuButton);
-        ltuButton.click();
+        studentButton.click();
+        mittLtuButton.click();
     }
 
     public void enterEmailAndPassword(String email, String password) {
-        try {
-            utils.delay(2000);
-            WebElement emailField = driver.findElement(ltuEmailField);
-            emailField.click();
-            emailField.sendKeys(email);
+        SelenideElement ltuEmailField = $x("//input[@id='username']");
+        SelenideElement ltuPasswordField = $x("//input[@id='password']");
 
-            utils.delay(2000);
-            WebElement passwordField = driver.findElement(ltuPasswordField);
-            passwordField.click();
-            passwordField.sendKeys(password);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        ltuEmailField.setValue(email);
+        ltuEmailField.sendKeys(Keys.ESCAPE);
+        ltuPasswordField.setValue(password);
+        ltuPasswordField.sendKeys(Keys.RETURN);
     }
 
-    public void clickLoginButton() {
-        try {
-            utils.delay(2000);
-            WebElement loginBTN = driver.findElement(ltuLoginButton);
-            loginBTN.click();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public void navigateToLadok() {
-        try {
-            utils.delay(2000);
-            WebElement ladokBTN = driver.findElement(ladokButton);
-            driver.get(ladokBTN.getAttribute("href"));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        SelenideElement ladokButton = $x("//a[text()=' Intyg »']");
+        open(ladokButton.attr("href"));
     }
 
     public void loginToLadok() {
+        SelenideElement ladokBLUEBIGBUTTON = $x("//a[@href='/student/login?ret=/app/studentwebb']");
+        SelenideElement searchInput = $x("//input[@id='searchinput']");
+        SelenideElement luleaField = $x("//div[text()='Lulea University of Technology']");
+
+        ladokBLUEBIGBUTTON.click();
+        searchInput.setValue("Luleå");
+        luleaField.click();
+    }
+
+    public void createTranscript() {
+        SelenideElement transcriptField = $x("//a[@href='/student/app/studentwebb/intyg']");
+        SelenideElement transcriptCreateButton = $x("//button[@title='Skapa intyg']");
+        SelenideElement selectionField = $x("//select[@id='intygstyp']");
+        SelenideElement programmeButton = $x("//input[@id='allaRegistreringarGrupperdePaProgramRadio']");
+        SelenideElement certificateCreate = $x("//span[text()='Skapa']");
+
+        transcriptField.click();
+        transcriptCreateButton.click();
+
+        selectionField.click();
+        selectionField.sendKeys(Keys.ARROW_DOWN);
+        selectionField.sendKeys(Keys.RETURN);
+
+        programmeButton.click();
+        certificateCreate.click();
+    }
+
+    public void downloadTranscript(String downloadName) {
         try {
-            utils.delay(2000);
-            WebElement blueButton = driver.findElement(ladokBLUEBIGBUTTON);
-            blueButton.click();
+            SelenideElement transcriptDownload = $x("//*[contains(text(),'Registreringsintyg')]");
 
             utils.delay(2000);
-            WebElement searchField = driver.findElement(searchInput);
-            searchField.click();
-            searchField.sendKeys("Luleå");
+            String downloadPath = "C:\\temp\\";
 
-            utils.delay(2000);
-            WebElement lulea = driver.findElement(luleaField);
-            lulea.click();
+            // Create directory if it does not exist
+            File direc = new File(downloadPath);
+            if (!direc.exists()) {
+                direc.mkdirs();
+                System.out.println("Directory did not exist, created new one.");
+            }
+
+            SelenideElement downloadLink = $(transcriptDownload);
+
+            // Download the file
+            File downloadedFile = downloadLink.download();
+
+            // Move the file to desired directory and rename
+
+            File oldFile = new File(downloadPath + downloadName);
+            if (oldFile.exists()) {
+                oldFile.delete();
+            }
+            File newFile = Paths.get(downloadPath, downloadName).toFile();
+            boolean success = downloadedFile.renameTo(newFile);
+
+            if (success) {
+                System.out.println("File successfully downloaded and moved to: " + newFile.getPath());
+            } else {
+                System.out.println("Failed to move the file to: " + newFile.getPath());
+            }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }
 
-    public void createTranscript(){
-        try {
-            utils.delay(1000);
-            WebElement transcriptBTN = driver.findElement(transcriptField);
-            transcriptBTN.click();
 
-            utils.delay(1000);
-            WebElement transcriptCreate = driver.findElement(transcriptCreateButton);
-            transcriptCreate.click();
-
-            utils.delay(1000);
-            WebElement selection = driver.findElement(selectionField);
-            selection.click();
-
-            selection.sendKeys(Keys.ARROW_DOWN);
-            selection.sendKeys(Keys.RETURN);
-
-            //utils.delay(1000);
-            //WebElement registrationtranscript  = driver.findElement(certificateOfRegisteration);
-            //registrationtranscript.click();
-
-            utils.delay(1000);
-            WebElement programmeBTN = driver.findElement(programmeButton);
-            programmeBTN.click();
-
-            utils.delay(1000);
-            WebElement createCert = driver.findElement(certificateCreate);
-            createCert.click();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void downloadTranscript(String downloadName){
-        try{
-            utils.delay(2000);
-           String downloadPath = "C:\\temp\\";
-           String url;
-
-           WebElement download = driver.findElement(transcriptDownload);
-           url = download.getAttribute("href");
-
-           WebDriverManager.chromedriver().setup();
-           Configuration.reportsFolder = downloadPath;
-           open(url);
-           File downloadFile = $(By.tagName("body")).download(Long.parseLong(downloadName));
-           downloadFile.createNewFile();
-           downloadFile.exists(); // returns true if exisstrs
-
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
     }
 }

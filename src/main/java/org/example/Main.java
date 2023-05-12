@@ -1,47 +1,40 @@
 package org.example;
-
-import org.openqa.selenium.WebDriver;
-
 import java.io.IOException;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
+        try {
 
-        WebDriver driver = driverSetup.getDriver();
-        driver.manage().window().maximize();
+            // Set up the driver.
+            driverSetup.getDriver();
 
-        transcriptPage transPage = new transcriptPage(driver);
-        transPage.acceptCookies();
+            credentialsFile credentials = new credentialsFile();     // The credentials are read from the credentials.json file
+            String email = credentials.getEmail();                   // "email" fetched
+            String password = credentials.getPassword();             // "password" fetched
 
-        credentialsFile credentials = new credentialsFile();
-        String email = credentials.getEmail();
-        String password = credentials.getPassword();
+            // Use transcriptPage.
+            transcriptPage transcriptPageInstance = new transcriptPage();
+            transcriptPageInstance.acceptCookies();
+            transcriptPageInstance.navigateToLTU();
+            transcriptPageInstance.enterEmailAndPassword(email, password);
+            transcriptPageInstance.navigateToLadok();
+            transcriptPageInstance.loginToLadok();
+            transcriptPageInstance.createTranscript();
+            transcriptPageInstance.downloadTranscript("transcriptFile.pdf");
 
-        transPage.navigateToLTU();
-        transPage.enterEmailAndPassword(email, password);
-        transPage.clickLoginButton();
+            // Use ltuPage.
+            ltuPage ltuPageInstance = new ltuPage();
+            ltuPageInstance.gotoKronox();
+            ltuPageInstance.enterEmailAndPassword(email, password);
+            ltuPageInstance.validateTenta("courseCode");
 
-        transPage.navigateToLadok();
-        transPage.loginToLadok();
-        transPage.createTranscript();
-        transPage.downloadTranscript("fileExample.pdf");
+            // Use syllabusPage.
+            new syllabusPage("syllabus.pdf");
 
-        /*
-        ltuPage ltu = new ltuPage(driver);
-        ltu.gotoKronox();
-        ltu.enterEmailAndPassword(email, password);
-        ltu.clickLoginButton();
-
-        if (ltu.validateTenta("I0015N")) {
-            System.out.println("exists");
-        } else {
-            System.out.println("does not exist");
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
         }
 
-
-         */
-        //driver.quit();
-
     }
-
 }
