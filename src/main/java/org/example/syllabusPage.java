@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 
 public class syllabusPage {
 
+    private String downloadPath = "C:\\Users\\krill\\IdeaProjects\\SecondJavaProject1\\target\\download\\";
     public syllabusPage() {
         open("https://www.ltu.se");
     }
@@ -29,8 +30,6 @@ public class syllabusPage {
             String actualUrl = url();
             Assertions.assertEquals(expectedUrl, actualUrl);
 
-
-            String downloadPath = "C:\\Users\\krill\\IdeaProjects\\SecondJavaProject1\\target\\download\\";
 
             SelenideElement transcriptDownload1 = $x("//a[@class='utbplan-pdf-link']");
 

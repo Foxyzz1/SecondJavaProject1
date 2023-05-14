@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca145f9-85a3-4ce3-b665-8a416dea53b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/java/org/example/PageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/java/org/example/credentialsFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/java/org/example/driverSetup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/java/org/example/ltuPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/java/org/example/syllabusPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/java/org/example/transcriptPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/java/org/example/utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/driverSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/driverSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ltuPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ltuPage.java" afterDir="false" />
+    <list default="true" id="6ca145f9-85a3-4ce3-b665-8a416dea53b1" name="Changes" comment="Set up tests with junit 5">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/syllabusPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/syllabusPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/transcriptPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/transcriptPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils.java" afterDir="false" />
     </list>
     <list id="8d671dce-e108-4216-8b34-4ce08b6bed39" name="Changes by Felle" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/syllabusPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/syllabusPage.java" afterDir="false" />
@@ -59,39 +42,12 @@
     </option>
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/example/ltuPage.java">
-      <ranges>
-        <range start1="7" end1="9" start2="7" end2="7" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="13" end1="13" start2="11" end2="12" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="17" end1="17" start2="16" end2="17" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="29" end1="29" start2="29" end2="30" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="40" end1="40" start2="41" end2="42" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="41" end1="42" start2="43" end2="44" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="45" end1="46" start2="47" end2="49" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="47" end1="48" start2="50" end2="51" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="49" end1="50" start2="52" end2="53" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="51" end1="51" start2="54" end2="57" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="52" end1="52" start2="58" end2="59" changelist="b2360385-8f14-4e94-bf16-5a2807894c07" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/java/org/example/syllabusPage.java">
       <ranges>
-        <range start1="4" end1="6" start2="4" end2="4" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="7" end1="9" start2="5" end2="5" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="11" end1="12" start2="7" end2="7" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="18" end1="19" start2="13" end2="18" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="20" end1="21" start2="19" end2="20" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="22" end1="26" start2="21" end2="25" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="27" end1="31" start2="26" end2="30" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="32" end1="33" start2="31" end2="33" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="34" end1="35" start2="34" end2="35" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="36" end1="43" start2="36" end2="43" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="44" end1="46" start2="44" end2="46" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="47" end1="55" start2="47" end2="54" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="56" end1="61" start2="55" end2="61" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="62" end1="63" start2="62" end2="62" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
-        <range start1="66" end1="66" start2="65" end2="66" changelist="8d671dce-e108-4216-8b34-4ce08b6bed39" />
-        <range start1="68" end1="68" start2="68" end2="69" changelist="8d671dce-e108-4216-8b34-4ce08b6bed39" />
+        <range start1="13" end1="13" start2="13" end2="14" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
+        <range start1="31" end1="33" start2="32" end2="32" changelist="6ca145f9-85a3-4ce3-b665-8a416dea53b1" />
+        <range start1="65" end1="65" start2="64" end2="65" changelist="8d671dce-e108-4216-8b34-4ce08b6bed39" />
+        <range start1="67" end1="67" start2="67" end2="68" changelist="8d671dce-e108-4216-8b34-4ce08b6bed39" />
       </ranges>
     </file>
   </component>
@@ -163,12 +119,23 @@
       <updated>1683811250575</updated>
       <workItem from="1683811251591" duration="938000" />
       <workItem from="1684075166925" duration="6165000" />
-      <workItem from="1684081553920" duration="870000" />
+      <workItem from="1684081553920" duration="1297000" />
     </task>
+    <task id="LOCAL−00001" summary="Set up tests with junit 5">
+      <created>1684082473154</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1684082473154</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Set up tests with junit 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set up tests with junit 5" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

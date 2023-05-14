@@ -9,6 +9,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ltuPage {
 
+    private String screenshotPath = "C:\\Users\\Krill\\IdeaProjects\\SecondJavaProject1\\target\\screenshots\\";
+
     // This is the constructor of the ltuPage class which opens the LTU website upon instantiation.
     public ltuPage() {
         Selenide.open("https://ltu.se");
@@ -41,7 +43,7 @@ public class ltuPage {
 
     // This method takes a screenshot and saves it in a specific folder with the provided name.
     public void screenshot(String name) {
-        Configuration.reportsFolder = "C:\\Users\\Krill\\IdeaProjects\\SecondJavaProject1\\target\\screenshots\\";
+        Configuration.reportsFolder = screenshotPath;
         Selenide.screenshot(name);
     }
 
