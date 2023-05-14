@@ -6,3 +6,6 @@
     "password": "your-pw"
   }
 }
+
+
+Do not forget to change the path of ltupage line 12, syllabusPage 14 and transcriptPage line 93 before run
