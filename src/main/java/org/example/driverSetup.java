@@ -28,9 +28,6 @@ public class driverSetup {
         // Set options
         Configuration.browserCapabilities = options;
 
-        // Set the reports folder
-        Configuration.reportsFolder = "C:\\temp\\";
-
 
     }
 }

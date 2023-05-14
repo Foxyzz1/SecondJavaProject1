@@ -5,16 +5,16 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 
-import java.security.Key;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class ltuPage {
 
+    // This is the constructor of the ltuPage class which opens the LTU website upon instantiation.
     public ltuPage() {
         Selenide.open("https://ltu.se");
     }
 
+    // This method navigates to the Kronox page by sequentially clicking on the necessary buttons.
     public void gotoKronox() {
         SelenideElement studentButton = $x("//a[text()='Student']");
         SelenideElement studeraButton = $x("//a[text()='Studera']");
@@ -27,6 +27,7 @@ public class ltuPage {
         kronoxButton.click();
     }
 
+    // This method logs into Kronox using the provided email and password.
     public void enterEmailAndPassword(String email, String password) {
         SelenideElement kronoxLoginButton = $x("//a[@class='signin']");
         SelenideElement kronoxEmailField = $x("//input[@id='login_username']");
@@ -38,16 +39,21 @@ public class ltuPage {
         kronoxPasswordField.sendKeys(Keys.RETURN);
     }
 
+    // This method takes a screenshot and saves it in a specific folder with the provided name.
     public void screenshot(String name) {
-        Configuration.reportsFolder = "C:\\Users\\Felle\\IdeaProjects\\Second Java Project1\\target\\screenshots\\";
+        Configuration.reportsFolder = "C:\\Users\\Krill\\IdeaProjects\\SecondJavaProject1\\target\\screenshots\\";
         Selenide.screenshot(name);
     }
 
-    public void validateTenta(String courseCode) {
+    // This method checks whether a course with the given courseCode has a final examination scheduled.
+    public boolean validateTenta(String courseCode) {
         SelenideElement akti = $x("//a[@href='/aktivitetsanmalan.jsp?']");
-        SelenideElement tenta = $x("//b[contains(text(), " + courseCode + ")]/parent::div/following-sibling::div[contains(text(), 'Datum')]");
+        SelenideElement tentaDate = $x("//b[contains(text(), " + courseCode + ")]/parent::div/following-sibling::div[contains(text(), 'Datum')]");
         akti.click();
-        System.out.println(tenta.getText());
+        System.out.println(tentaDate.getText());
         screenshot("final_examination");
+
+        // Returns true if the final examination date is displayed, otherwise false.
+        return tentaDate.isDisplayed();
     }
 }
