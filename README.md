@@ -8,4 +8,4 @@
 }
 
 
-Do not forget to change the path of ltupage line 12, syllabusPage 14 before run.
+Do not forget to change the path of ltupage line 12, syllabusPage line 14 before run.
